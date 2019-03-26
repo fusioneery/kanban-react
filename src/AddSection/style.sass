@@ -1,0 +1,47 @@
+@import './../vars.sass'
+.input
+    border-radius: 10px
+    font-size: 16px
+    border: 1px solid lightgray
+    background: white
+    padding: 10px
+    &::placeholder
+        color: lightgray
+.button
+    border: 0
+    background: $gradient
+    color: white
+    border-radius: 10px
+    padding: 12px
+    font-size: 14px
+    position: relative
+    font-weight: bold
+    cursor: pointer
+    overflow: hidden
+    &:hover:after
+        transform: skewX(-42deg) translateX(140px)
+        transition: .6s ease
+    &:after
+        position: absolute
+        content: ''
+        width: 40px
+        bottom: 0
+        background: linear-gradient(-92deg,rgba(255,255,255,.4),rgba(255,255,255,.4))
+        height: 120%
+        left: 0
+        transform: skewX(-42deg) translateX(-50px)
+        transform: skewX(-42deg) translateX(-50px)
+        z-index: 1
+        will-change: transform
+.add
+    padding: 20px $padding
+    box-shadow: 0 0px 15px rgba(1,1,1,0.04)
+    &__desc
+        font-size: 14px
+        color: rgba(0,0,0,.6)
+        line-height: 0.9
+        margin-bottom: 5px
+    &__input-group
+        display: flex
+        align-items: center
+        justify-content: flex-start
