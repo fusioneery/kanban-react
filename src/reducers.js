@@ -1,8 +1,9 @@
 import { TASK_ADD, TASK_EDIT, TASK_REMOVE } from './actions.js';
 import shortid from 'shortid';
+import { loadFromLS } from './enhancers.js';
 
 const initialState = {
-	tasks: [],
+	tasks: loadFromLS(),
 	error: null,
 };
 

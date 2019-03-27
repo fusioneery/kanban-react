@@ -1,4 +1,6 @@
 @import './../vars.sass'
+@import './../media.sass'
+
 .input
     border-radius: 10px
     font-size: 16px
@@ -35,13 +37,24 @@
         will-change: transform
 .add
     padding: 20px $padding
+    +sm()
+        padding: 20px $sm-padding
     box-shadow: 0 0px 15px rgba(1,1,1,0.04)
     &__desc
         font-size: 14px
         color: rgba(0,0,0,.6)
         line-height: 0.9
         margin-bottom: 5px
-    &__input-group
+    &__container
         display: flex
-        align-items: center
-        justify-content: flex-start
+        flex-wrap: wrap
+        margin: -5px
+.input-group
+    & > .input
+        flex: auto
+        max-width: 310px
+        margin: 5px
+    & > .button
+        margin: 5px
+
+    

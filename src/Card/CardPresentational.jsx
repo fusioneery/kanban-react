@@ -10,8 +10,7 @@ export default function CardPresentational({
 	onEdit,
 	onRemove,
 	isEditing,
-	handleNameChange,
-	handleDescChange,
+	handleInputChange,
     onSave,
     onCancel
 }) {
@@ -33,8 +32,8 @@ export default function CardPresentational({
         }
             { isEditing &&
                 <>
-                <input value={name} onChange={handleNameChange} className="card__heading card__heading--input" />
-			    <input value={desc} onChange={handleDescChange} className="card__desc card__desc--input" />
+                <input value={name} onChange={e => handleInputChange('name', e)} className="card__heading card__heading--input" />
+			    <textarea value={desc} onChange={e => handleInputChange('desc', e)} className="card__desc card__desc--input" />
                 <div className="card__actions actions">
 				<button onClick={onSave} className="action">
 					<img src={doneIcon} alt="done" className="action__img" />

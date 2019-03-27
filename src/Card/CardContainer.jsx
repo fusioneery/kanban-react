@@ -6,7 +6,6 @@ import { taskEdit, taskRemove } from '../actions';
 class CardContainer extends Component {
 	constructor() {
 		super();
-		console.log(this.props);
 		this.state = {
 			nameVal: '',
 			descVal: '',
@@ -15,6 +14,7 @@ class CardContainer extends Component {
 	}
 
 	edit = () => {
+		console.log(this.state);
 		this.setState((prevState) => {
 			return {
 				...prevState,
@@ -43,7 +43,7 @@ class CardContainer extends Component {
 	};
 
 	cancel = () => {
-		this.setState((prevState) => {
+		this.setState(() => {
 			return {
 				nameVal: this.props.name,
 				descVal: this.props.desc,
@@ -52,27 +52,20 @@ class CardContainer extends Component {
 		});
 	};
 
-	changeDescValue = (val) => {
+	changeInputValue = (type, val) => {
+		console.log(type, val);
+		let stateKey = type + 'Val';
 		this.setState((prevState) => {
 			return {
 				...prevState,
-				descVal: val,
-			};
-		});
-	};
-
-	changeNameValue = (val) => {
-		console.log(val);
-		this.setState((prevState) => {
-			return {
-				...prevState,
-				nameVal: val,
+				[stateKey]: val,
 			};
 		});
 	};
 
 	static getDerivedStateFromProps(nextProps, prevState) {
-		if (prevState.nameVal == '' || prevState.descVal == '') {
+		if (prevState.nameVal === '' && prevState.descVal === '') {
+			console.log(nextProps);
 			return {
 				...prevState,
 				nameVal: nextProps.name,
@@ -93,8 +86,7 @@ class CardContainer extends Component {
 				onRemove={() => this.remove()}
 				onCancel={() => this.cancel()}
 				isEditing={this.state.isEditing}
-				handleDescChange={(e) => this.changeDescValue(e.target.value)}
-				handleNameChange={(e) => this.changeNameValue(e.target.value)}
+				handleInputChange={(type, e) => this.changeInputValue(type, e.target.value)}
 			/>
 		);
 	}

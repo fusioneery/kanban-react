@@ -1,11 +1,11 @@
 @import '../vars.sass'
 .card
-    width: 270px
+    max-width: 270px
     // flex: 1 0 auto
     border-radius: 5px
     padding: 15px
     background: #fff
-    min-height: 150px
+    min-height: 120px
     display: flex
     flex-direction: column
     justify-content: space-between
@@ -19,12 +19,18 @@
         max-width: 100%
         overflow-wrap: break-word
         line-height: 1.5
+        &--input
+            border-radius: 5px
+            border: 1px solid #c5c5c5
     &__desc
         line-height: 1.25
         max-width: 100%
         overflow-wrap: break-word
         margin-top: 15px
         font-size: 15px
+        &--input
+            border-radius: 5px
+            border: 1px solid #c5c5c5
     &__actions
         margin-top: 15px
 .actions

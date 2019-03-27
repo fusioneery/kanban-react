@@ -1,11 +1,17 @@
 import React from 'react';
-import Card from '../Card/CardContainer.jsx';
+import Skeleton from 'react-loading-skeleton';
 import './style.sass';
+
+const Card = React.lazy(() => import('../Card/CardContainer.jsx'));
 
 export default function ColumnPresentational({ tasks, columnName }) {
 	const cards = tasks.map((task) => {
 		console.log(task);
-		return <Card key={task.id} id={task.id} name={task.name} desc={task.desc} track={task.track} />;
+		return (
+			<React.Suspense key={task.id} fallback={<Skeleton />}>
+				<Card id={task.id} name={task.name} desc={task.desc} track={task.track} />
+			</React.Suspense>
+		);
 	});
 	return (
 		<div className="col">

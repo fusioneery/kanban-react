@@ -6,8 +6,10 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-loading-skeleton": "^1.1.1",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "react-spring": "^8.0.18",
     "redux": "^4.0.1",
     "reduxsauce": "^1.0.1",
     "shortid": "^2.2.14"

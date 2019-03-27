@@ -4,6 +4,7 @@ import Header from './Header/HeaderContainer'
 import AddSection from './AddSection/AddSectionContainer'
 import Columns from './Columns/ColumnsContainer.jsx'
 import './reset.sass'
+import './main.sass'
 
 class App extends Component {
   render() {

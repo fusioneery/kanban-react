@@ -19,6 +19,7 @@ class AddSectionContainer extends Component {
 
 	taskAdd = () => {
 		this.props.taskAddAction(this.state.taskName);
+		this.setState({ taskName: '' });
 	};
 
 	render() {

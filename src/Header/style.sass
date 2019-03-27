@@ -1,7 +1,11 @@
 @import './../vars.sass'
+@import './../media.sass'
+
 .header
     display: flex
-    padding: 30px 40px
+    padding: 30px $padding
+    +sm()
+        padding: 30px $sm-padding
     align-items: center
     justify-content: space-between
     &__title

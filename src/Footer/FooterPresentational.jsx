@@ -5,10 +5,11 @@ export default function FooterPresentational() {
 	return (
 		<footer className="footer">
 			<p className="copyright">
-				<a href="http://vladabramov.pro" className="copyright__link">
+				{' '}
+				Made with <i className="heart">❤</i> by{' '}
+				<a href="http://vladabramov.pro" className="copyright__link link">
 					Vlad Abramov
-				</a>{' '}
-				(c) made with <i className="heart">❤</i>
+				</a>
 			</p>
 		</footer>
 	);
