@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import Columns from './ColumnsPresentational';
+import { connect } from 'react-redux';
 
-export default class ColumnsContainer extends Component {
+class ColumnsContainer extends Component {
 	render() {
-		return <Columns />;
+		return <Columns tasks={this.props.tasks} />;
 	}
 }
+
+const mapStateToProps = (state) => ({
+	tasks: state.tasks,
+});
+
+export default connect(mapStateToProps)(ColumnsContainer);
