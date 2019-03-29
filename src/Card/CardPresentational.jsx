@@ -12,13 +12,17 @@ export default function CardPresentational({
 	isEditing,
 	handleInputChange,
     onSave,
-    onCancel
+	onCancel,
+	innerRef,
+	...rest
 }) {
 	return (
-		<div className="card">
+		<div ref={innerRef} {...rest} className="card">
         { !isEditing &&
         <>
-			<p className="card__heading">{name}</p>
+			<div className="card__heading-container">
+				<p className="card__heading">{name}</p>
+			</div>
 			<p className="card__desc">{desc}</p>
 			<div className="card__actions actions">
             <button onClick={onEdit} className="action">

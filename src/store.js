@@ -7,5 +7,5 @@ const composedEnhancers = compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.
 export const store = createStore(rootReducer, composedEnhancers);
 
 store.subscribe(() => {
-	saveToLS(store.getState().tasks);
+	saveToLS(store.getState().cols);
 });

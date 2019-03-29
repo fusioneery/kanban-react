@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import CardPresentational from './CardPresentational';
 import { connect } from 'react-redux';
 import { taskEdit, taskRemove } from '../actions';
+import { Draggable } from 'react-beautiful-dnd';
 
 class CardContainer extends Component {
 	constructor() {
 		super();
+		console.log(this.props);
 		this.state = {
 			nameVal: '',
 			descVal: '',
@@ -24,12 +26,14 @@ class CardContainer extends Component {
 	};
 
 	save = () => {
-		this.props.taskEditAction({
-			id: this.props.id,
-			name: this.state.nameVal,
-			desc: this.state.descVal,
-			track: this.props.track,
-		});
+		this.props.taskEditAction(
+			{
+				id: this.props.id,
+				name: this.state.nameVal,
+				desc: this.state.descVal,
+			},
+			this.props.track,
+		);
 		this.setState((prevState) => {
 			return {
 				...prevState,
@@ -39,7 +43,7 @@ class CardContainer extends Component {
 	};
 
 	remove = () => {
-		this.props.taskRemoveAction(this.props.id);
+		this.props.taskRemoveAction(this.props.id, this.props.track);
 	};
 
 	cancel = () => {
@@ -78,24 +82,31 @@ class CardContainer extends Component {
 
 	render() {
 		return (
-			<CardPresentational
-				name={this.state.nameVal}
-				desc={this.state.descVal}
-				onEdit={() => this.edit()}
-				onSave={() => this.save()}
-				onRemove={() => this.remove()}
-				onCancel={() => this.cancel()}
-				isEditing={this.state.isEditing}
-				handleInputChange={(type, e) => this.changeInputValue(type, e.target.value)}
-			/>
+			<Draggable draggableId={this.props.id} index={this.props.index}>
+				{(provided) => (
+					<CardPresentational
+						innerRef={provided.innerRef}
+						name={this.state.nameVal}
+						desc={this.state.descVal}
+						onEdit={() => this.edit()}
+						onSave={() => this.save()}
+						onRemove={() => this.remove()}
+						onCancel={() => this.cancel()}
+						isEditing={this.state.isEditing}
+						handleInputChange={(type, e) => this.changeInputValue(type, e.target.value)}
+						{...provided.draggableProps}
+						{...provided.dragHandleProps}
+					/>
+				)}
+			</Draggable>
 		);
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		taskEditAction: (task) => dispatch(taskEdit(task)),
-		taskRemoveAction: (id) => dispatch(taskRemove(id)),
+		taskEditAction: (task, colName) => dispatch(taskEdit(task, colName)),
+		taskRemoveAction: (id, board) => dispatch(taskRemove(id, board)),
 	};
 };
 

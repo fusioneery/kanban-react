@@ -1,24 +1,11 @@
 import React from 'react';
-import Column from '../Column/ColumnPresentational';
-import { BACKLOG, IN_PROGRESS, DONE } from '../reducers';
+import Column from '../Column/ColumnContainer';
 import './style.sass';
 
-export default function ColumnsPresentational({ tasks }) {
-	let columns = [
-		{
-			name: 'Backlog',
-			tasks: tasks.filter((el) => el.track === BACKLOG),
-		},
-		{
-			name: 'In progress',
-			tasks: tasks.filter((el) => el.track === IN_PROGRESS),
-		},
-		{
-			name: 'Done',
-			tasks: tasks.filter((el) => el.track === DONE),
-		},
-	].map((col, i) => {
-		return <Column key={i} columnName={col.name} tasks={col.tasks} />;
+export default function ColumnsPresentational({ cols }) {
+	const columns = Object.entries(cols).map((entry, i) => {
+		let colVal = entry[1];
+		return <Column key={i} columnName={entry[0]} tasks={colVal} />;
 	});
 	return <main className="columns">{columns}</main>;
 }

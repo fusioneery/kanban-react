@@ -1,44 +1,66 @@
-import { TASK_ADD, TASK_EDIT, TASK_REMOVE } from './actions.js';
+import { TASK_ADD, TASK_EDIT, TASK_REMOVE, TASK_CHANGE_POS, TASK_CHANGE_COL } from './actions.js';
 import shortid from 'shortid';
-import { loadFromLS } from './enhancers.js';
+import { loadFromLS, changePosition, changeColumn } from './enhancers.js';
+import { BACKLOG, IN_PROGRESS, DONE } from './actionTypes.js';
 
 const initialState = {
-	tasks: loadFromLS(),
+	cols: loadFromLS(),
 	error: null,
 };
 
-export const BACKLOG = 'BACKLOG';
-export const IN_PROGRESS = 'IN_PROGRESS';
-export const DONE = 'DONE';
-
-export function rootReducer(state = initialState, action) {
-	console.log(action);
-	switch (action.type) {
+export function rootReducer(state = initialState, { payload, type }) {
+	let columnName;
+	if (payload) {
+		columnName = payload.columnName;
+	}
+	switch (type) {
 		case TASK_ADD:
 			return {
 				...state,
-				tasks: [
-					...state.tasks,
-					{
-						id: shortid.generate(),
-						track: BACKLOG,
-						name: action.payload,
-						desc: '',
-					},
-				],
+				cols: {
+					...state.cols,
+					[BACKLOG]: [
+						...state.cols[BACKLOG],
+						{
+							id: shortid.generate(),
+							name: payload,
+							desc: '',
+						},
+					],
+				},
 			};
 		case TASK_REMOVE:
 			return {
 				...state,
-				tasks: state.tasks.filter((task) => task.id !== action.payload),
+				cols: {
+					...state.cols,
+					[columnName]: state.cols[columnName].filter((task) => task.id !== payload.id),
+				},
 			};
 		case TASK_EDIT:
-			let taskIndex = state.tasks.findIndex((el) => el.id === action.payload.id);
-			let newTasks = state.tasks.slice();
-			newTasks[taskIndex] = action.payload;
+			console.log(payload);
+			let taskIndex = state.cols[columnName].findIndex((el) => el.id === payload.id);
+			let newTasks = Array.from(state.cols[columnName]);
+			newTasks[taskIndex] = payload;
 			return {
 				...state,
-				tasks: newTasks,
+				cols: {
+					...state.cols,
+					[columnName]: newTasks,
+				},
+			};
+		case TASK_CHANGE_POS:
+			return {
+				...state,
+				cols: {
+					...state.cols,
+					[columnName]: changePosition(state.cols[columnName], payload.from, payload.to),
+				},
+			};
+		case TASK_CHANGE_COL:
+			return {
+				...state,
+				cols: changeColumn(state.cols, payload.fromIndex, payload.fromBoard, payload.toIndex, payload.toBoard),
 			};
 		default:
 			return state;
