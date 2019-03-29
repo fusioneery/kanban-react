@@ -1,16 +1,27 @@
-import { TASK_ADD, TASK_EDIT, TASK_REMOVE, TASK_CHANGE_POS, TASK_CHANGE_COL } from './actions.js';
 import shortid from 'shortid';
 import { loadFromLS, changePosition, changeColumn } from './enhancers.js';
-import { BACKLOG, IN_PROGRESS, DONE } from './actionTypes.js';
+import {
+	BACKLOG,
+	TASK_ADD,
+	TASK_EDIT,
+	TASK_REMOVE,
+	TASK_CHANGE_POS,
+	TASK_CHANGE_COL,
+	ELEM_HEIGHT_ADD,
+	SHOW_HINT,
+} from './actionTypes.js';
 
 const initialState = {
 	cols: loadFromLS(),
 	error: null,
+	elemsHeight: 0,
+	hint: false,
+	hintText: 'dfgdfgfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdgsfwewe43t45g',
 };
 
 export function rootReducer(state = initialState, { payload, type }) {
 	let columnName;
-	if (payload) {
+	if (payload && payload.columnName) {
 		columnName = payload.columnName;
 	}
 	switch (type) {
@@ -38,11 +49,9 @@ export function rootReducer(state = initialState, { payload, type }) {
 				},
 			};
 		case TASK_EDIT:
-			console.log(payload);
 			let taskIndex = state.cols[columnName].findIndex((el) => el.id === payload.task.id);
 			let newTasks = Array.from(state.cols[columnName]);
 			newTasks[taskIndex] = { ...payload.task };
-			console.log(newTasks);
 			return {
 				...state,
 				cols: {
@@ -62,6 +71,17 @@ export function rootReducer(state = initialState, { payload, type }) {
 			return {
 				...state,
 				cols: changeColumn(state.cols, payload.fromIndex, payload.fromBoard, payload.toIndex, payload.toBoard),
+			};
+		case ELEM_HEIGHT_ADD:
+			return {
+				...state,
+				elemsHeight: state.elemsHeight + payload,
+			};
+		case SHOW_HINT:
+			return {
+				...state,
+				hint: true,
+				hintText: payload,
 			};
 		default:
 			return state;

@@ -1,8 +1,14 @@
-export const TASK_ADD = 'TASK_ADD';
-export const TASK_EDIT = 'TASK_EDIT';
-export const TASK_REMOVE = 'TASK_REMOVE';
-export const TASK_CHANGE_POS = 'TASK_CHANGE_POS';
-export const TASK_CHANGE_COL = 'TASK_CHANGE_COL';
+import {
+	ELEM_HEIGHT_ADD,
+	TASK_CHANGE_COL,
+	TASK_CHANGE_POS,
+	TASK_REMOVE,
+	TASK_EDIT,
+	TASK_ADD,
+	SHOW_HINT,
+} from './actionTypes';
+
+// import { dispatch } from './store';
 
 export function taskAdd(name) {
 	return {
@@ -31,6 +37,20 @@ export function taskRemove(id, columnName) {
 	};
 }
 
+export function deleteTaskAndShowHint(id, columnName) {
+	return function(dispatch) {
+		dispatch(taskRemove(id, columnName));
+		dispatch(showDeleteHint());
+	};
+}
+
+export function showDeleteHint() {
+	return {
+		type: SHOW_HINT,
+		payload: 'Задача была успешно удалена.',
+	};
+}
+
 export function taskChangePosition(from, to, colName) {
 	return {
 		type: TASK_CHANGE_POS,
@@ -51,5 +71,12 @@ export function taskChangeColumn(fromIndex, fromBoard, toIndex, toBoard) {
 			toIndex: toIndex,
 			toBoard: toBoard,
 		},
+	};
+}
+
+export function setClientHeight(height) {
+	return {
+		type: ELEM_HEIGHT_ADD,
+		payload: height,
 	};
 }

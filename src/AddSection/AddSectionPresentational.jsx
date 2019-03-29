@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.sass';
 
-export default function AddSectionPresentational({ onAdd, onTaskNameChange, taskName }) {
+export const AddSectionPresentational = React.forwardRef(({ onAdd, onTaskNameChange, taskName }, ref) => {
 	return (
-		<div className="add">
+		<div ref={ref} className="add">
 			<p className="add__desc">Add a new task</p>
 			<div className="add__container input-group">
 				<input
@@ -19,4 +19,4 @@ export default function AddSectionPresentational({ onAdd, onTaskNameChange, task
 			</div>
 		</div>
 	);
-}
+});

@@ -3,7 +3,8 @@
 
 .header
     display: flex
-    padding: 30px $padding
+    padding: 20px $padding
+    flex-wrap: wrap
     +sm()
         padding: 30px $sm-padding
     align-items: center
@@ -11,6 +12,7 @@
     &__title
         font-weight: bold
         font-size: 48px
+        margin: 20px 10px
         position: relative
         &:after
             content: ''
@@ -23,6 +25,7 @@
             z-index: -1
 .hint
     border-radius: 25px
+    margin: 20px 10px
     box-shadow: 0px 0px 50px rgba(0,0,0,.07)
     padding: 10px 20px
     border: 1px solid #f5f5f5
@@ -31,8 +34,8 @@
     align-items: center
     max-width: 350px
     cursor: pointer
-    transition: all .6s ease
-    will-change: transform
+    // transition: all .6s ease
+    // will-change: transform
     &:hover
         box-shadow: 0px 20px 100px rgba(0,0,0,.07)
         transform: translateY(10px)

@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.sass';
 
-export default function FooterPresentational() {
+export const FooterPresentational = React.forwardRef((props, ref) => {
 	return (
-		<footer className="footer">
+		<footer ref={ref} className="footer">
 			<p className="copyright">
 				{' '}
 				Made with <i className="heart">❤</i> by{' '}
@@ -13,4 +13,4 @@ export default function FooterPresentational() {
 			</p>
 		</footer>
 	);
-}
+});

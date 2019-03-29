@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import Columns from './ColumnsPresentational';
+import { ColumnsPresentational } from './ColumnsPresentational';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { taskChangePosition, taskChangeColumn } from '../actions';
 
 class ColumnsContainer extends Component {
+	constructor() {
+		super();
+		this.ref = React.createRef();
+	}
+
+	componentDidMount = () => {
+		setTimeout(() => {
+			this.ref.current.style.minHeight = window.innerHeight - this.props.elemsHeight - 80 + 'px';
+		}, 1);
+	};
+
 	onDragEnd = ({ destination, source }) => {
 		if (destination !== null) {
 			if (destination.droppableId !== source.droppableId) {
@@ -25,7 +36,7 @@ class ColumnsContainer extends Component {
 	render() {
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
-				<Columns cols={this.props.cols} />
+				<ColumnsPresentational ref={this.ref} cols={this.props.cols} />
 			</DragDropContext>
 		);
 	}
@@ -34,6 +45,7 @@ class ColumnsContainer extends Component {
 const mapStateToProps = (state) => {
 	return {
 		cols: state.cols,
+		elemsHeight: state.elemsHeight,
 	};
 };
 

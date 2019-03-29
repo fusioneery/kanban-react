@@ -12,6 +12,7 @@
     "react-scripts": "2.1.8",
     "react-spring": "^8.0.18",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "reduxsauce": "^1.0.1",
     "shortid": "^2.2.14"
   },

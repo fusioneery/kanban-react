@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AddSection from './AddSectionPresentational';
+import { AddSectionPresentational } from './AddSectionPresentational';
 import { connect } from 'react-redux';
-import { taskAdd } from '../actions';
+import { taskAdd, setClientHeight } from '../actions';
 
 class AddSectionContainer extends Component {
 	constructor() {
@@ -9,6 +9,7 @@ class AddSectionContainer extends Component {
 		this.state = {
 			taskName: '',
 		};
+		this.ref = React.createRef();
 	}
 
 	handleTaskName = (name) => {
@@ -22,9 +23,14 @@ class AddSectionContainer extends Component {
 		this.setState({ taskName: '' });
 	};
 
+	componentDidMount = () => {
+		this.props.setHeightElementAction(this.ref.current.clientHeight);
+	};
+
 	render() {
 		return (
-			<AddSection
+			<AddSectionPresentational
+				ref={this.ref}
 				onTaskNameChange={(e) => this.handleTaskName(e.target.value)}
 				taskName={this.state.taskName}
 				onAdd={() => this.taskAdd()}
@@ -36,6 +42,7 @@ class AddSectionContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		taskAddAction: (name) => dispatch(taskAdd(name)),
+		setHeightElementAction: (h) => dispatch(setClientHeight(h)),
 	};
 };
 

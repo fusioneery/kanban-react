@@ -1,3 +1,10 @@
 export const BACKLOG = 'BACKLOG';
 export const IN_PROGRESS = 'IN_PROGRESS';
 export const DONE = 'DONE';
+export const TASK_ADD = 'TASK_ADD';
+export const TASK_EDIT = 'TASK_EDIT';
+export const TASK_REMOVE = 'TASK_REMOVE';
+export const TASK_CHANGE_POS = 'TASK_CHANGE_POS';
+export const TASK_CHANGE_COL = 'TASK_CHANGE_COL';
+export const ELEM_HEIGHT_ADD = 'ELEM_HEIGHT_ADD';
+export const SHOW_HINT = 'SHOW_HINT';
