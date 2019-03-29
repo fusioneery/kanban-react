@@ -7,7 +7,6 @@ import { Draggable } from 'react-beautiful-dnd';
 class CardContainer extends Component {
 	constructor() {
 		super();
-		console.log(this.props);
 		this.state = {
 			nameVal: '',
 			descVal: '',
@@ -16,7 +15,6 @@ class CardContainer extends Component {
 	}
 
 	edit = () => {
-		console.log(this.state);
 		this.setState((prevState) => {
 			return {
 				...prevState,
@@ -57,7 +55,6 @@ class CardContainer extends Component {
 	};
 
 	changeInputValue = (type, val) => {
-		console.log(type, val);
 		let stateKey = type + 'Val';
 		this.setState((prevState) => {
 			return {
@@ -69,7 +66,6 @@ class CardContainer extends Component {
 
 	static getDerivedStateFromProps(nextProps, prevState) {
 		if (prevState.nameVal === '' && prevState.descVal === '') {
-			console.log(nextProps);
 			return {
 				...prevState,
 				nameVal: nextProps.name,

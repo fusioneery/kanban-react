@@ -39,9 +39,10 @@ export function rootReducer(state = initialState, { payload, type }) {
 			};
 		case TASK_EDIT:
 			console.log(payload);
-			let taskIndex = state.cols[columnName].findIndex((el) => el.id === payload.id);
+			let taskIndex = state.cols[columnName].findIndex((el) => el.id === payload.task.id);
 			let newTasks = Array.from(state.cols[columnName]);
-			newTasks[taskIndex] = payload;
+			newTasks[taskIndex] = { ...payload.task };
+			console.log(newTasks);
 			return {
 				...state,
 				cols: {
