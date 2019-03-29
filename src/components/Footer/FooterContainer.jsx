@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FooterPresentational } from './FooterPresentational.jsx';
 import { connect } from 'react-redux';
-import { setClientHeight } from '../actions';
+import { setClientHeight } from '../../store/actions';
 
 class FooterContainer extends Component {
 	constructor() {

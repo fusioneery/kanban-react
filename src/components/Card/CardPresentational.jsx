@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.sass';
-import editIcon from '../images/edit.svg';
-import removeIcon from '../images/remove.svg';
-import doneIcon from '../images/done.svg';
+import editIcon from '../../images/edit.svg';
+import removeIcon from '../../images/remove.svg';
+import doneIcon from '../../images/done.svg';
 
 export default function CardPresentational({
 	name,

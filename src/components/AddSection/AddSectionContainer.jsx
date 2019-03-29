@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AddSectionPresentational } from './AddSectionPresentational';
 import { connect } from 'react-redux';
-import { taskAdd, setClientHeight } from '../actions';
+import { taskAdd, setClientHeight } from '../../store/actions';
 
 class AddSectionContainer extends Component {
 	constructor() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ColumnsPresentational } from './ColumnsPresentational';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { taskChangePosition, taskChangeColumn } from '../actions';
+import { taskChangePosition, taskChangeColumn } from '../../store/actions';
 
 class ColumnsContainer extends Component {
 	constructor() {

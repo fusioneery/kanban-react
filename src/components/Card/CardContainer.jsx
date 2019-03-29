@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardPresentational from './CardPresentational';
 import { connect } from 'react-redux';
-import { taskEdit, deleteTaskAndShowHint } from '../actions';
+import { taskEdit, deleteTaskAndShowHint } from '../../store/actions';
 import { Draggable } from 'react-beautiful-dnd';
 
 class CardContainer extends Component {

@@ -2,7 +2,7 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import './style.sass';
 import { Droppable } from 'react-beautiful-dnd';
-import { BACKLOG, IN_PROGRESS, DONE } from '../actionTypes';
+import { BACKLOG, IN_PROGRESS, DONE } from '../../store/actionTypes';
 
 const Card = React.lazy(() => import('../Card/CardContainer.jsx'));
 

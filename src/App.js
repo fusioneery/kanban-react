@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Footer from './Footer/FooterContainer'
-import Header from './Header/HeaderContainer'
-import AddSection from './AddSection/AddSectionContainer'
-import Columns from './Columns/ColumnsContainer.jsx'
-import './reset.sass'
-import './main.sass'
+import Footer from './components/Footer/FooterContainer'
+import Header from './components/Header/HeaderContainer'
+import AddSection from './components/AddSection/AddSectionContainer'
+import Columns from './components/Columns/ColumnsContainer.jsx'
+import './styles/reset.sass'
+import './styles/main.sass'
 
 class App extends Component {
   render() {

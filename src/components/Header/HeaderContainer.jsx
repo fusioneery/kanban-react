@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HeaderPresentational } from './HeaderPresentational';
 import { connect } from 'react-redux';
-import { setClientHeight } from '../actions';
+import { setClientHeight } from '../../store/actions';
 
 class HeaderContainer extends Component {
 	constructor() {

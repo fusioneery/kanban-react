@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.sass';
-import hintImage from '../images/info.svg';
+import hintImage from '../../images/info.svg';
 import { useTransition, animated } from 'react-spring';
 
 export const HeaderPresentational = React.forwardRef(({ hintVisible, hintText }, ref) => {
