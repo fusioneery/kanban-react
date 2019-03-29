@@ -1,0 +1,21 @@
+{
+  "main.css": "/kanban-react/static/css/main.b9cfb9fa.chunk.css",
+  "main.js": "/kanban-react/static/js/main.65a43608.chunk.js",
+  "main.js.map": "/kanban-react/static/js/main.65a43608.chunk.js.map",
+  "runtime~main.js": "/kanban-react/static/js/runtime~main.682ca97b.js",
+  "runtime~main.js.map": "/kanban-react/static/js/runtime~main.682ca97b.js.map",
+  "static/js/2.87277f61.chunk.js": "/kanban-react/static/js/2.87277f61.chunk.js",
+  "static/js/2.87277f61.chunk.js.map": "/kanban-react/static/js/2.87277f61.chunk.js.map",
+  "static/css/3.3a7048e4.chunk.css": "/kanban-react/static/css/3.3a7048e4.chunk.css",
+  "static/js/3.de61901f.chunk.js": "/kanban-react/static/js/3.de61901f.chunk.js",
+  "static/js/3.de61901f.chunk.js.map": "/kanban-react/static/js/3.de61901f.chunk.js.map",
+  "index.html": "/kanban-react/index.html",
+  "precache-manifest.9c29701612f5ad36dd56474bddfabea9.js": "/kanban-react/precache-manifest.9c29701612f5ad36dd56474bddfabea9.js",
+  "service-worker.js": "/kanban-react/service-worker.js",
+  "static/css/3.3a7048e4.chunk.css.map": "/kanban-react/static/css/3.3a7048e4.chunk.css.map",
+  "static/css/main.b9cfb9fa.chunk.css.map": "/kanban-react/static/css/main.b9cfb9fa.chunk.css.map",
+  "static/media/done.svg": "/kanban-react/static/media/done.0ca705b6.svg",
+  "static/media/edit.svg": "/kanban-react/static/media/edit.f58f46ef.svg",
+  "static/media/info.svg": "/kanban-react/static/media/info.772356be.svg",
+  "static/media/remove.svg": "/kanban-react/static/media/remove.a2e39ab4.svg"
+}
