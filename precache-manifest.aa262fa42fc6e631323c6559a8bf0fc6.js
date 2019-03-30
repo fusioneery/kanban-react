@@ -1,27 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "9ab1c73a8ef2bab2e0ff",
-    "url": "/kanban-react/static/js/3.de61901f.chunk.js"
+    "revision": "b408abc57293d653e4de",
+    "url": "/kanban-react/static/js/3.5569d9e0.chunk.js"
   },
   {
-    "revision": "40d81db75936cd4867fe",
+    "revision": "958c46c585965faf8d01",
     "url": "/kanban-react/static/css/main.b9cfb9fa.chunk.css"
   },
   {
-    "revision": "a76605f30bcb7356d119",
-    "url": "/kanban-react/static/js/runtime~main.682ca97b.js"
+    "revision": "67019ecacefa245af218",
+    "url": "/kanban-react/static/js/runtime~main.4e46c48b.js"
   },
   {
-    "revision": "e0bde5ec280f7f8e0272",
-    "url": "/kanban-react/static/js/2.87277f61.chunk.js"
+    "revision": "5228d294f97bec48fca5",
+    "url": "/kanban-react/static/js/2.02c406e6.chunk.js"
   },
   {
     "revision": "0ca705b68f8457891b020dc8e1a5a1bc",
     "url": "/kanban-react/static/media/done.0ca705b6.svg"
   },
   {
-    "revision": "40d81db75936cd4867fe",
-    "url": "/kanban-react/static/js/main.65a43608.chunk.js"
+    "revision": "958c46c585965faf8d01",
+    "url": "/kanban-react/static/js/main.160256ec.chunk.js"
   },
   {
     "revision": "772356bee868c115c18357a41fd33d34",
@@ -36,11 +36,11 @@ self.__precacheManifest = [
     "url": "/kanban-react/static/media/remove.a2e39ab4.svg"
   },
   {
-    "revision": "9ab1c73a8ef2bab2e0ff",
+    "revision": "b408abc57293d653e4de",
     "url": "/kanban-react/static/css/3.3a7048e4.chunk.css"
   },
   {
-    "revision": "16d16b8caf88226264d15cc55605e2b2",
+    "revision": "b93efeecb91cc6744d755424639aab4a",
     "url": "/kanban-react/index.html"
   }
 ];
